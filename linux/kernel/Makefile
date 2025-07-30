@@ -139,6 +139,7 @@ KCOV_INSTRUMENT_stackleak.o := n
 obj-$(CONFIG_SCF_TORTURE_TEST) += scftorture.o
 
 obj-y += new_syscall.o # add new myself system call
+obj-y += new_stack_syscall.o # add new homework system call
 
 $(obj)/configs.o: $(obj)/config_data.gz
 

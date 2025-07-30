@@ -889,8 +889,14 @@ __SYSCALL(__NR_set_mempolicy_home_node, sys_set_mempolicy_home_node)
 #define __NR_new_syscall 451 // assign new system call number
 __SYSCALL(__NR_new_syscall, sys_new_syscall)
 
+#define __NR_new_push_syscall 452
+__SYSCALL(__NR_new_push_syscall, sys_new_push_syscall)
+
+#define __NR_new_pop_syscall 453
+__SYSCALL(__NR_new_pop_syscall, sys_new_pop_syscall)
+
 #undef __NR_syscalls
-#define __NR_syscalls 452
+#define __NR_syscalls 454
 
 /*
  * 32 bit systems traditionally used different
