@@ -3,6 +3,7 @@
 #include <linux/spinlock.h>
 
 #define BUF_SIZE 16
+#define COMENTO_IOCTL_CLEAR _IO('c', 0)
 
 static DEFINE_RWLOCK(lock);
 static char comento_buf[BUF_SIZE] = {0, };
@@ -51,11 +52,27 @@ static int comento_device_open(struct inode *inode, struct file *file)
 	return 0;
 }
 
+static long comento_device_ioctl(struct file *fp, unsigned int cmd, unsigned long arg)
+{
+	switch(cmd)
+	{
+		case COMENTO_IOCTL_CLEAR:
+			memset(comento_buf, 0, BUF_SIZE);
+			break;
+		default:
+			printk(KERN_DEBUG "%s failed - %d \n", __func__, cmd);
+			return -EINVAL;
+	}
+
+	return 0;
+}
+
 static struct file_operations fops = 
 {
 	.open = comento_device_open,
 	.read = comento_device_read,
 	.write = comento_device_write,
+	.unlocked_ioctl = comento_device_ioctl,
 };
 
 static int __init comento_module_init(void)
