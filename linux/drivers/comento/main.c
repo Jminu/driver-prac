@@ -1,6 +1,7 @@
 #include <linux/module.h>
 #include <linux/fs.h>
 #include <linux/spinlock.h>
+#include <linux/device.h>
 
 #define BUF_SIZE 16
 #define COMENTO_IOCTL_CLEAR _IO('c', 0)
@@ -75,11 +76,20 @@ static struct file_operations fops =
 	.unlocked_ioctl = comento_device_ioctl,
 };
 
+static struct class *class;
+static struct device *device;
+
 static int __init comento_module_init(void)
 {
 	printk(KERN_DEBUG "%s\n", __func__);
-	int ret = register_chrdev(177, "comento", &fops);
-	return ret;
+
+	int major = register_chrdev(0, "comento", &fops);
+	int minor = 17;	
+
+	class = class_create(THIS_MODULE, "comento");
+	device = device_create(class, NULL, MKDEV(major, minor), NULL, "%s%d", "comento", minor);
+
+	return 0;
 }
 
 static void __exit comento_module_exit(void)
