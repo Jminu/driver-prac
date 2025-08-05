@@ -1,0 +1,7 @@
+menu "HW5 Driver"
+
+config HW5_DRIVER
+	tristate "Week5 homework driver"
+	help
+		This is an Week5 homework drvier
+endmenu

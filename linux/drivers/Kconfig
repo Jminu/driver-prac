@@ -243,4 +243,8 @@ source "drivers/hte/Kconfig"
 
 source "drivers/comento/Kconfig"
 
+source "drivers/hw5/Kconfig"
+
+source "drivers/keyring/Kconfig"
+
 endmenu

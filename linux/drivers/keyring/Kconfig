@@ -1,0 +1,8 @@
+menu "Kering Driver"
+
+config KEYRING_DRIVER
+	tristate "Homework Keyring Driver"
+	help
+		this is an homework keyring drvier
+
+endmenu
