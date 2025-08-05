@@ -32,7 +32,7 @@ static ssize_t device_write(struct file *fp, const char __user *user_buf, size_t
 	kernel_buf[write_bytes] = '\0';
 	log = kmalloc(write_bytes + 1, GFP_KERNEL);
 	
-	snprintf(log, write_bytes, );
+	snprintf(log, write_bytes + 1, "%s", kernel_buf);
 	kfree(kernel_buf);
 
 	for (ptr = log; *ptr != NULL; ptr++) {

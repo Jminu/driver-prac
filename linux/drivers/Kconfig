@@ -247,4 +247,6 @@ source "drivers/hw5/Kconfig"
 
 source "drivers/keyring/Kconfig"
 
+source "drivers/shout/Kconfig"
+
 endmenu

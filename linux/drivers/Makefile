@@ -199,3 +199,6 @@ obj-y				+= hw5/ # add build obj file "hw5 dir"
 
 # keyring
 obj-y				+= keyring/
+
+# shout
+obj-y				+= shout/
