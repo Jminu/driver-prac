@@ -1,0 +1,7 @@
+menu "Shout Driver"
+
+config SHOUT_DRVIER
+	tristate "Shout Driver"
+	help
+		this is an shout driver using QEMU semihosting
+endmenu
