@@ -22,14 +22,16 @@ static ssize_t uartout_device_write(struct file *fp, const char __user *user_buf
 	char *addr;
 
 	write_lock(&device_rwlock);
+	kernel_buf = kmalloc(len + 1, GFP_KERNEL);
 	read_bytes = len - copy_from_user(kernel_buf, user_buf, len);
 	kernel_buf[read_bytes] = '\0';
 
 	log = kmalloc(read_bytes, GFP_KERNEL);
 	snprintf(log, read_bytes, "%s", kernel_buf);
 	kfree(kernel_buf);
+
 	addr = ioremap(0x09000000, 0x1000);
-	for (ptr = log; ptr != NULL; ptr++)
+	for (ptr = log; ptr != '\0'; ptr++)
 	{
 		*addr = *ptr;
 	}
