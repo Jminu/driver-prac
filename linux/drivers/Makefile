@@ -202,3 +202,6 @@ obj-y				+= keyring/
 
 # shout
 obj-y				+= shout/
+
+# uartout
+obj-y				+= uartout/

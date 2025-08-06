@@ -249,4 +249,6 @@ source "drivers/keyring/Kconfig"
 
 source "drivers/shout/Kconfig"
 
+source "drivers/uartout/Kconfig"
+
 endmenu

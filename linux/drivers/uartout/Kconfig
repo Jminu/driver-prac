@@ -1,0 +1,7 @@
+menu "Uart Out Driver"
+
+config UARTOUT_DRIVER
+	tristate "Homework UartOut Drvier"
+	help
+		this this an driver with uartout
+endmenu
