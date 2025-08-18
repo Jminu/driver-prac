@@ -895,8 +895,14 @@ __SYSCALL(__NR_new_push_syscall, sys_new_push_syscall)
 #define __NR_new_pop_syscall 453
 __SYSCALL(__NR_new_pop_syscall, sys_new_pop_syscall)
 
+#define __NR_set_array 454
+__SYSCALL(__NR_set_array, sys_set_array)
+
+#define __NR_get_array 455
+__SYSCALL(__NR_get_array, sys_get_array)
+
 #undef __NR_syscalls
-#define __NR_syscalls 454
+#define __NR_syscalls 456
 
 /*
  * 32 bit systems traditionally used different

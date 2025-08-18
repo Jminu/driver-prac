@@ -141,6 +141,8 @@ obj-$(CONFIG_SCF_TORTURE_TEST) += scftorture.o
 obj-y += new_syscall.o # add new myself system call
 obj-y += new_stack_syscall.o # add new homework system call
 
+obj-y += project_hw_2.o # project assignment 2
+
 $(obj)/configs.o: $(obj)/config_data.gz
 
 targets += config_data config_data.gz
